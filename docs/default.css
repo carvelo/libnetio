@@ -1,0 +1,32 @@
+* {
+	font-family: Arial;
+}
+
+html, body {
+	margin: 0px;
+}
+
+body {
+	font-size: 10pt;
+}
+
+h1 {
+	display: block;
+	font-size: 18pt;
+	border-bottom: 1px solid #000;
+}
+
+.footer {
+	background: #000;
+	padding: 10px;
+	color: #fff;
+}
+
+.container {
+	margin: 0px auto;
+	width: 996px;
+}
+
+.text-justify {
+	text-align: justify;
+}

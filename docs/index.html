@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>libnetio Documentation</title>
+		<link rel="stylesheet" type="text/css" href="default.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Introduction</h1>
+			<p class="text-justify">
+				libnetio aims to be a library specializing in networking I/O to provide quick asynchronous 
+				throughput with minimal memory requirements. Currently, libnetio targets Microsoft Windows, 
+				Mac OS X and Linux operating systems. 
+				<br><br>
+				Different operating systems implement different APIs to provide asynchronous networking 
+				models, with Windows using IOCP(Input/Output Completion Port), Mac OS X using kqueue and 
+				Linux using epoll. It is libnetio's job to make use of these APIs in the respective platforms
+				and provide an common interface that will output the same results across different operating systems.
+			</p>
+			
+			<h1>Contributors</h1>
+			<p class="text-justify">
+				The codebase for libnetio is maintained by BlueWaveCode. However, the following individuals have
+				contributed toward making libnetio possible:
+				<br><br>
+				Carlos Arvelo - Lead Programmer
+			</p>
+			
+			<h1>IOCP in Microsoft Windows</h1>
+			<p class="text-justify">
+				IOCP, which stands for Input/Output Completion Port, is Microsoft's API for performing multiple
+				asynchronous operations. 
+				<br><br>
+				The way IOCP works is quite simple. You fire a request, say WSARecv(), and your application will 
+				be notified after completing a receive. In this context, completion means receiving data and storing the
+				data in a specified buffer. When IOCP notifies the application WSARecv() has been completed, the application
+				will already have the data in the buffer; the application just needs to process the data now.
+				<br><br>
+				This is different from similar APIs, where the application is notified when there is data to be received and
+				the application must explicitly call recv() to handle it. In IOCP, the application is not notified when there 
+				is data to be received; it is only notified when the data has already been received. This means that there is
+				no explicit recv() call being made.
+				<br><br>
+				<br><br>
+				The first step toward implementing IOCP with network sockets is to create an IOCP. This is done with the
+				<b>CreateIoCompletionPort</b> function.
+			</p>
+		</div>
+		
+		<div class="footer">
+			<div class="container">
+				libnetio is maintained by <b>BlueWaveCode</b>.
+			</div>
+		</div>
+	</body>
+</html>
